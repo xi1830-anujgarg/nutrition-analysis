@@ -1,0 +1,12 @@
+<div class="container">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <strong>Ingreditant Nutritions</strong>
+        <span class="badge badge-primary badge-pill">Daily Value</span>
+      </li>
+        <li *ngFor="let eleVal of totalNutritionData" class="list-group-item d-flex justify-content-between align-items-center">
+          {{eleVal.name}} ({{eleVal.seprateValue}})
+          <span class="badge badge-primary badge-pill">{{eleVal.dailyValue}}</span>
+        </li>
+      </ul>
+</div>

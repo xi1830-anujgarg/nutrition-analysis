@@ -1,0 +1,32 @@
+<div class="container p-3 my-3 bg-primary text-white">
+  
+    <h4><button type="button" class="btn btn-info" (click) = "backClick()">Back</button> Ingredients List</h4>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Quntity</th>
+            <th>Unit</th>
+            <th>Food</th>
+            <th>Calories</th>
+            <th>Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let ingr of ingredientsList">
+            <td>{{ingr.parsed[0].quantity}}</td>
+            <td>{{ingr.parsed[0].measure}}</td>
+            <td>{{ingr.parsed[0].foodMatch}}</td>
+            <td>{{ingr.parsed[0].nutrients.ENERC_KCAL.quantity | number}} {{ingr.parsed[0].nutrients.ENERC_KCAL.unit}}</td>
+            <td>{{ingr.parsed[0].weight | number}} g</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-info" (click) = "showTotalNutritionClick()">Total Nutrition</button>
+      <label *ngIf="ingredientsList.length < 1">Please enter correct items in Ingredients</label>
+</div>
+<br>
+<app-total-nutrition [totalNutriantDetails] = "summaryData" *ngIf="showTotalNutrition"></app-total-nutrition>
+
+   

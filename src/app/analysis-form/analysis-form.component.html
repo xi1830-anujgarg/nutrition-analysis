@@ -1,0 +1,15 @@
+<div class="container p-3 my-3 bg-primary text-white">
+    <h2>Please enter ingredients</h2>
+    <p>Please enter each ingredient on a new line.</p>
+    <form [formGroup] = "analysisForm">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Ingredients</label>
+          <textarea class="form-control"  formControlName="ingredient" id="exampleFormControlTextarea1" rows="15"></textarea>
+        </div>
+        <button type="button" *ngIf = "!storeData.loading" [disabled] = "formValidation()" (click)="submitForm()" class="btn btn-info">Get Details</button>
+        <div class="spinner-border" role="status" *ngIf = "storeData.loading">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <label>{{this.errorMsg}}</label>
+    </form>
+</div>
